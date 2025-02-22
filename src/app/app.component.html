@@ -1,6 +1,5 @@
 <div class="container">
   <div class="card">
-
     <!-- Top row -->
     <div class="top-row">
       <!-- this div will represent a curruncy selector -->
@@ -9,8 +8,18 @@
       </div>
 
       <div class="action-buttons">
-        <Button class="button">Clear</Button>
-        <Button class="button">Done</Button>
+        <app-custom-button
+          [backgroundColor]="'#FF2C2C'"
+          [text]="'Clear'"
+          (action)="onClear()"
+        >
+        </app-custom-button>
+        <app-custom-button
+          [backgroundColor]="'#2E6F40'"
+          [text]="'Done'"
+          (action)="onDone()"
+        >
+        </app-custom-button>
       </div>
     </div>
 

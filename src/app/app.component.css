@@ -17,7 +17,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;/* to be removed */ 
+  /* border: 1px solid red;to be removed  */
 }
 
 /* temporary item, will be removed */
@@ -34,14 +34,6 @@
 .action-buttons {
   display: flex;
   gap: 16px;
-}
-
-.button {
-  width: 85px;
-  height: 40px;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
 }
 
 .second-row {

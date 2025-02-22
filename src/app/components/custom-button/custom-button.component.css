@@ -1,0 +1,15 @@
+button {
+  width: 85px;
+  height: 42px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.97);
+    background-color: darken(#1976d2, 5%);
+  }
+}
