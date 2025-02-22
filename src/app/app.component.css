@@ -1,0 +1,72 @@
+.container {
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 26px;
+  border-radius: 10px;
+  margin: 150px auto 150px auto;
+  border: 1px solid #545454;
+  gap: 26px;
+}
+
+.top-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;/* to be removed */ 
+}
+
+/* temporary item, will be removed */
+.currency {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #545454;
+  width: 150px;
+  height: 40px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.button {
+  width: 85px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.second-row {
+  width: 100%;
+  display: block;
+  border: 1px solid red;/* to be removed */ 
+  height: 280px;
+}
+
+.table {
+  width: 100%;
+  display: block;
+  border: 1px solid blue; /* to be removed */ 
+  height: 380px;
+}
+
+.summary {
+  width: 30%;
+  height: 200px;
+  border: 1px solid blue;
+}
+
+.banking {
+  width: 100%;
+  display: block;
+  border: 1px solid green; /* to be removed */ 
+  height: 380px;
+}
