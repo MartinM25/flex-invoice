@@ -45,8 +45,6 @@
 .banking {
   width: 100%;
   display: block;
-  border: 1px solid green;
-  height: 380px;
 }
 
 /* Medium screens (tablets, 768px and up) */

@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="bankingForm">
+    <!-- Company Name -->
+    <mat-form-field appearance="fill">
+      <mat-label>Bank Name</mat-label>
+      <input matInput formControlName="bankName" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Branch Code</mat-label>
+      <input matInput formControlName="branchCode" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Account Holder</mat-label>
+      <input matInput formControlName="accountHolder" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Account Number</mat-label>
+      <input matInput formControlName="accountNumber" />
+    </mat-form-field>
+  </form>
+</div>

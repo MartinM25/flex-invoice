@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BillToComponent } from './components/bill-to/bill-to.component';
 import { HeadingComponent } from './components/heading/heading.component';
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
+import { BankingDetailsComponent } from './components/banking-details/banking-details.component';
 import { BusinessDetailsComponent } from './components/business-details/business-details.component';
 
 interface Currency {
@@ -16,14 +16,14 @@ interface Currency {
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
     BusinessDetailsComponent,
+    BankingDetailsComponent,
     CustomButtonComponent,
     MatFormFieldModule,
     HeadingComponent,
     MatSelectModule,
-    BillToComponent
-],
+    BillToComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
