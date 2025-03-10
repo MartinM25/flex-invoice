@@ -1,5 +1,5 @@
 .container {
-  width: 100%;
+  padding: 16px;
 }
 
 .card {
@@ -8,28 +8,15 @@
   width: 80%;
   padding: 26px;
   border-radius: 10px;
-  margin: 150px auto 150px auto;
-  border: 1px solid #545454;
+  margin: auto;
+  border: 2px solid #545454;
   gap: 26px;
-}
-
-select {
-  background-color: transparent;
 }
 
 .top-row {
   width: 100%;
   display: flex;
   justify-content: space-between;
-}
-
-mat-form-field, mat-select-panel {
-  color: white;
-  background-color: #333;
-}
-
-mat-option {
-  color: black;
 }
 
 .action-buttons {
@@ -60,4 +47,14 @@ mat-option {
   display: block;
   border: 1px solid green;
   height: 380px;
+}
+
+/* Medium screens (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large screens (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+
 }

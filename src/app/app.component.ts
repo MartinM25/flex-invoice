@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BillToComponent } from './components/bill-to/bill-to.component';
+import { HeadingComponent } from './components/heading/heading.component';
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 import { BusinessDetailsComponent } from './components/business-details/business-details.component';
 
@@ -18,6 +20,7 @@ interface Currency {
     BusinessDetailsComponent,
     CustomButtonComponent,
     MatFormFieldModule,
+    HeadingComponent,
     MatSelectModule,
     BillToComponent
 ],
