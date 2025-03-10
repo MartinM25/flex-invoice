@@ -13,22 +13,23 @@
   gap: 26px;
 }
 
+select {
+  background-color: transparent;
+}
+
 .top-row {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid red;to be removed  */
 }
 
-/* temporary item, will be removed */
-.currency {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid #545454;
-  width: 150px;
-  height: 40px;
+mat-form-field, mat-select-panel {
+  color: white;
+  background-color: #333;
+}
+
+mat-option {
+  color: black;
 }
 
 .action-buttons {
@@ -39,14 +40,12 @@
 .second-row {
   width: 100%;
   display: block;
-  border: 1px solid red;/* to be removed */ 
-  height: 280px;
 }
 
 .table {
   width: 100%;
   display: block;
-  border: 1px solid blue; /* to be removed */ 
+  border: 1px solid blue;
   height: 380px;
 }
 
@@ -59,6 +58,6 @@
 .banking {
   width: 100%;
   display: block;
-  border: 1px solid green; /* to be removed */ 
+  border: 1px solid green;
   height: 380px;
 }

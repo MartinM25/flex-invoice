@@ -1,0 +1,41 @@
+/* Container for the entire form */
+.container {
+  display: grid;
+  gap: 16px;
+  border: 2px solid red; /* Debugging: Highlight the container */
+}
+
+/* Left column */
+.left-column {
+  border: 2px solid blue; /* Debugging: Highlight the left column */
+}
+
+/* Right column */
+.right-column {
+  border: 2px solid green; /* Debugging: Highlight the right column */
+}
+
+/* Two-column layout for large devices */
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 70% 30%; /* Left column wider, right column narrower */
+  }
+}
+
+/* Single-column layout for small devices */
+@media (max-width: 767px) {
+  .container {
+    grid-template-columns: 1fr; /* Single column */
+  }
+}
+
+/* Address fields (City and Country) - always side by side */
+.address {
+  display: flex;
+  gap: 16px;
+}
+
+/* Full-width form fields */
+mat-form-field {
+  width: 100%;
+}

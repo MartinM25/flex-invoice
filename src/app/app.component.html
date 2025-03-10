@@ -3,9 +3,16 @@
     <!-- Top row -->
     <div class="top-row">
       <!-- this div will represent a curruncy selector -->
-      <div class="currency">
-        <p>Currency Selector</p>
-      </div>
+      <!-- <div class="currency"> -->
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Select Currency</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let currency of currencies" [value]="currency.value">
+              {{ currency.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+      <!-- </div> -->
 
       <div class="action-buttons">
         <app-custom-button
@@ -15,7 +22,7 @@
         >
         </app-custom-button>
         <app-custom-button
-          [backgroundColor]="'#2E6F40'"
+          [backgroundColor]="'primary'"
           [text]="'Done'"
           (action)="onDone()"
         >
@@ -26,11 +33,13 @@
     <!-- Form for Company -->
     <div class="second-row">
       <h1>Business Details</h1>
+      <app-business-details></app-business-details>
     </div>
 
     <!-- Form for recepient -->
     <div class="second-row">
       <h1>Bill To</h1>
+      <app-bill-to></app-bill-to>
     </div>
 
     <!-- Table for displaying the Description -->

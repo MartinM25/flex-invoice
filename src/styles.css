@@ -7,9 +7,17 @@ body {
   background-color: #252525;
   color: white;
 
+
+
   /* white: #FFFFFF;
   black: #000401;
   gray: #2E3133;
   red: #FF2C2C;
   green: #2E6F40; */
+  /* 
+  
+  proces the felling later */
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
