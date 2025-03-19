@@ -31,9 +31,9 @@
 
 .table {
   width: 100%;
-  display: block;
-  border: 1px solid blue;
-  height: 380px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents elements from wrapping */
+  max-width: 100%;
 }
 
 .summary {
