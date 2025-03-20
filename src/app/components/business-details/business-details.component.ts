@@ -6,7 +6,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+
+import { InvoiceDataService } from '../../services/invoice-data.service';
 import { CommonModule } from '@angular/common';
+import { distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-business-details',
@@ -26,7 +29,10 @@ import { CommonModule } from '@angular/common';
 export class BusinessDetailsComponent implements OnInit {
   businessForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private invoiceService: InvoiceDataService
+  ) {}
 
   ngOnInit(): void {
     this.businessForm = this.fb.group({
@@ -40,14 +46,24 @@ export class BusinessDetailsComponent implements OnInit {
       currency: [''],
       invoiceDate: [''],
     });
+    
+    this.invoiceService.businessDetails$.subscribe(data => {
+      if (data) this.businessForm.patchValue(data, { emitEvent: false });
+    });
+
+    this.businessForm.valueChanges.pipe(
+      distinctUntilChanged()
+    ).subscribe(() => {
+      this.saveBusinessDetails();
+    });
   }
 
   resetForm() {
     this.businessForm.reset();
   }
 
-  getFormData() {
-    return this.businessForm.value;
+  saveBusinessDetails() {
+    this.invoiceService.updateBusinessDetails(this.businessForm.value);
   }
 
 }

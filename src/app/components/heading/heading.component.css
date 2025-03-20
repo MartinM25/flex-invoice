@@ -1,12 +1,12 @@
 p {
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: 1.5rem;
+  font-weight: 500;
   margin-top: 24px;
 }
 
 /* Styles for larger devices */
 @media (min-width: 768px) {
   p {
-    font-size: 4rem;
+    font-size: 2rem;
   }
 }

@@ -1,21 +1,6 @@
 <div class="container">
   <div class="card">
-    <div class="top-row">
-      <div class="action-buttons">
-        <app-custom-button
-          [backgroundColor]="'#FF2C2C'"
-          [text]="'Clear'"
-          (action)="onClear()"
-        >
-        </app-custom-button>
-        <app-custom-button
-          [backgroundColor]="'primary'"
-          [text]="'Done'"
-          (action)="onDone()"
-        >
-        </app-custom-button>
-      </div>
-    </div>
+
 
     <!-- Form for Company -->
     <div class="second-row">
@@ -44,7 +29,24 @@
       <app-heading [text]="'Banking Details'"></app-heading>
       <app-banking-details></app-banking-details>
     </div>
+
+    <div class="top-row">
+      <div class="action-buttons">
+        <app-custom-button
+          [backgroundColor]="'#FF2C2C'"
+          [text]="'Clear'"
+          (action)="onClear()"
+        >
+        </app-custom-button>
+        <app-custom-button
+          [backgroundColor]="'primary'"
+          [text]="'Done'"
+          (action)="onDone()"
+        >
+        </app-custom-button>
+      </div>
+    </div>
   </div>
 
-  <div class="space"></div>
+  
 </div>

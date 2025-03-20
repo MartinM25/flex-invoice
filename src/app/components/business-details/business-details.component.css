@@ -8,7 +8,20 @@ mat-form-field {
 }
 
 /* Medium screens (tablets, 768px and up) */
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+  form {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .left-column {
+    flex: 3;
+  }
+  
+  .right-column {
+    flex: 1;
+  }
+}
 
 /* Large screens (desktops, 1024px and up) */
 @media (min-width: 1024px) {}

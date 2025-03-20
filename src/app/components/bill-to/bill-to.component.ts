@@ -3,7 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+
+import { InvoiceDataService } from '../../services/invoice-data.service';
 import { CommonModule } from '@angular/common';
+import { distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-bill-to',
@@ -18,12 +21,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './bill-to.component.css'
 })
 export class BillToComponent implements OnInit {
-  businessForm!: FormGroup;
+  clientForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private invoiceService: InvoiceDataService
+  ) {}
 
   ngOnInit(): void {
-    this.businessForm = this.fb.group({
+    this.clientForm = this.fb.group({
       name: [''],
       streetAddress: [''],
       city: [''],
@@ -31,13 +37,24 @@ export class BillToComponent implements OnInit {
       email: ['', [Validators.email]],
       phone: ['', [Validators.pattern(/^[0-9]{10}$/)]],
     });
+
+    this.invoiceService.clientDetails$.subscribe(data => {
+      if (data) this.clientForm.patchValue(data, { emitEvent: false });
+    });
+
+    this.clientForm.valueChanges.pipe(
+      distinctUntilChanged() // Ensures only actual changes trigger updates
+    ).subscribe(() => {
+      this.saveClientDetails();
+    });
   }
 
   resetForm() {
-    this.businessForm.reset();
+    this.clientForm.reset();
   }
 
-  getFormData() {
-    return this.businessForm.value;
+
+  saveClientDetails() {
+    this.invoiceService.updateClientDetails(this.clientForm.value);
   }
 }

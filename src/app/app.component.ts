@@ -9,6 +9,8 @@ import { CustomButtonComponent } from './components/custom-button/custom-button.
 import { BankingDetailsComponent } from './components/banking-details/banking-details.component';
 import { BusinessDetailsComponent } from './components/business-details/business-details.component';
 
+import { InvoiceDataService } from './services/invoice-data.service';
+
 interface Currency {
   value: string
 }
@@ -32,6 +34,8 @@ interface Currency {
 export class AppComponent {
   title = 'flex-invoice';
 
+  constructor(private invoiceService: InvoiceDataService) {}
+
   currencies: Currency[] = [
     {value: 'ZAR'},
     {value: 'USD'},
@@ -43,6 +47,7 @@ export class AppComponent {
   };
 
   onDone() {
-    console.log('Button clicked!');
+    const allDetails = this.invoiceService.getAllDetails();
+    console.log('Saved Invoice Details:', allDetails);
   }
 }

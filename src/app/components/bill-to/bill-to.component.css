@@ -6,3 +6,10 @@ div.address {
   display: flex;
   gap: 16px;
 }
+
+/* Medium screens (tablets, 768px and up) */
+@media (min-width: 768px) {
+  form {
+    width: 45%;
+  }
+}
