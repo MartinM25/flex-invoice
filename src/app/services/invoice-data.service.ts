@@ -45,7 +45,7 @@ export class InvoiceDataService {
       business: this.businessDetails.getValue(),
       client: this.clientDetails.getValue(),
       banking: this.bankingDetails.getValue(),
-      // items: this.invoiceItems.getValue(),
+      items: this.invoiceItems.getValue(),
     };
   }
 }
