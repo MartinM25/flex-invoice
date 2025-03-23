@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
-// import { MatTableModule } from '@angular/material/table';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { InvoiceDataService } from '../../services/invoice-data.service';
 import { Subscription, distinctUntilChanged } from 'rxjs';
@@ -25,6 +23,7 @@ export class DescriptionComponent implements OnInit {
   descriptionForm!: FormGroup;
   displayedColumns: string[] = ['description', 'rate', 'quantity', 'total'];
   private subscription!: Subscription;
+  subtotal: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -44,10 +43,12 @@ export class DescriptionComponent implements OnInit {
       } else if (this.rows.length === 0) {
         this.rows.push(this.createRow());
       }
+      this.updateSubtotal();
     });
 
     this.descriptionForm.valueChanges.pipe(distinctUntilChanged()).subscribe(() => {
       this.invoiceService.updateInvoiceItems(this.rows.value);
+      this.updateSubtotal();
     });
   }
 
@@ -72,6 +73,7 @@ export class DescriptionComponent implements OnInit {
     this.rows.push(this.createRow());
     this.descriptionForm.markAsDirty();
     this.descriptionForm.markAsTouched();
+    this.updateSubtotal();
   }
 
   calculateTotal(index: number): void {
@@ -82,6 +84,7 @@ export class DescriptionComponent implements OnInit {
     row.get('total')?.setValue(total, { emitEvent: false });
 
     this.invoiceService.updateInvoiceItems(this.rows.value);
+    this.updateSubtotal();
   }
 
   getRowGroup(index: number): FormGroup {
@@ -91,6 +94,15 @@ export class DescriptionComponent implements OnInit {
   removeRow(index: number): void {
     this.rows.removeAt(index);
     this.invoiceService.updateInvoiceItems(this.rows.value);
+    this.updateSubtotal();
+  }
+
+  updateSubtotal(): void {
+    this.subtotal = this.rows.controls.reduce((sum, row) => {
+      return sum + (row.get('total')?.value || 0);
+    }, 0);
+
+    this.invoiceService.updateSubtotal(this.subtotal); // Share subtotal with service
   }
   
 }

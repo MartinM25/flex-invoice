@@ -23,6 +23,10 @@ export class InvoiceDataService {
   private invoiceItems = new BehaviorSubject<any[]>([]);
   invoiceItems$ = this.invoiceItems.asObservable();
 
+  // Stores subtotal value
+  private subtotalSubject = new BehaviorSubject<number>(0); 
+  subtotal$ = this.subtotalSubject.asObservable();
+
   // Methods to update data
   updateBusinessDetails(details: any) {
     this.businessDetails.next(details);
@@ -38,6 +42,10 @@ export class InvoiceDataService {
 
   updateInvoiceItems(items: any[]) {
     this.invoiceItems.next(items);
+  }
+
+  updateSubtotal(subtotal: number): void {
+    this.subtotalSubject.next(subtotal);
   }
 
   getAllDetails() {

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+}
+
+.card {
+  display: block;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+/* Medium and Large screens */
+@media (min-width: 768px) {
+  .container {
+    justify-content: flex-end;
+  }
+}

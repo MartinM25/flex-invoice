@@ -8,6 +8,7 @@ import { DescriptionComponent } from './components/description/description.compo
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 import { BankingDetailsComponent } from './components/banking-details/banking-details.component';
 import { BusinessDetailsComponent } from './components/business-details/business-details.component';
+import { TotalComponent } from './components/total/total.component';
 
 import { InvoiceDataService } from './services/invoice-data.service';
 
@@ -26,7 +27,8 @@ interface Currency {
     HeadingComponent,
     MatSelectModule,
     BillToComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    TotalComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
