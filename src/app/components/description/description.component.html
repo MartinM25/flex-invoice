@@ -21,7 +21,7 @@
         <input type="number" formControlName="quantity" placeholder="Quantity" (input)="calculateTotal(i)" />
       </div>
       <div class="input-field">
-        <input [value]="getRowGroup(i).get('total')?.value" readonly />
+        <input formControlName="total" readonly />
         <button type="button" (click)="removeRow(i)">Remove</button>
       </div>
     </div>

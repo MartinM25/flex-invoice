@@ -54,6 +54,7 @@ export class InvoiceDataService {
       client: this.clientDetails.getValue(),
       banking: this.bankingDetails.getValue(),
       items: this.invoiceItems.getValue(),
+      total: this.subtotalSubject.getValue(),
     };
   }
 }

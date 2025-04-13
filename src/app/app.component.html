@@ -1,50 +1,46 @@
 <div class="container">
-  <div class="card">
-    <!-- Form for Company -->
-    <div class="second-row">
-      <app-heading [text]="'Business Details'"></app-heading>
-      <app-business-details></app-business-details>
-    </div>
+  <div *ngIf="!showPreview">
+    <div class="card">
+      <div class="second-row">
+        <app-heading [text]="'Business Details'"></app-heading>
+        <app-business-details></app-business-details>
+      </div>
 
-    <!-- Form for recepient -->
-    <div class="second-row">
-      <app-heading [text]="'Bill To'"></app-heading>
-      <app-bill-to></app-bill-to>
-    </div>
+      <div class="second-row">
+        <app-heading [text]="'Bill To'"></app-heading>
+        <app-bill-to></app-bill-to>
+      </div>
 
-    <!-- Table for displaying the Description -->
-    <div class="table">
-      <app-description></app-description>
-    </div>
+      <div class="table">
+        <app-description></app-description>
+      </div>
 
-    <!-- Total Display -->
-    <div class="summary">
-      <app-total></app-total>
-    </div>
+      <div class="summary">
+        <app-total></app-total>
+      </div>
 
-    <!-- Banking Details Form -->
-    <div class="banking">
-      <app-heading [text]="'Banking Details'"></app-heading>
-      <app-banking-details></app-banking-details>
-    </div>
+      <div class="banking">
+        <app-heading [text]="'Banking Details'"></app-heading>
+        <app-banking-details></app-banking-details>
+      </div>
 
-    <div class="top-row">
-      <div class="action-buttons">
-        <app-custom-button
-          [backgroundColor]="'#FF2C2C'"
-          [text]="'Clear'"
-          (action)="onClear()"
-        >
-        </app-custom-button>
-        <app-custom-button
-          [backgroundColor]="'primary'"
-          [text]="'Done'"
-          (action)="onDone()"
-        >
-        </app-custom-button>
+      <div class="top-row">
+        <div class="action-buttons">
+          <app-custom-button [backgroundColor]="'#FF2C2C'" [text]="'Clear'" (action)="onClear()"></app-custom-button>
+          <app-custom-button [backgroundColor]="'primary'" [text]="'Done'" (action)="onDone()"></app-custom-button>
+        </div>
       </div>
     </div>
   </div>
 
-  
+  <div *ngIf="showPreview" class="preview-container">
+    <div id="invoice-preview" class="invoice">
+      <app-preview></app-preview>
+    </div>
+
+    <!-- <div class="preview-actions">
+      <app-custom-button [backgroundColor]="'#FF2C2C'" [text]="'Back'" (action)="goBack()"></app-custom-button>
+      <app-custom-button [backgroundColor]="'green'" [text]="'Download PDF'" ></app-custom-button>
+    </div> -->
+  </div>
 </div>

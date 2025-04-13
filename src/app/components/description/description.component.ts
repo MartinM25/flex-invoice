@@ -47,7 +47,7 @@ export class DescriptionComponent implements OnInit {
     });
 
     this.descriptionForm.valueChanges.pipe(distinctUntilChanged()).subscribe(() => {
-      this.invoiceService.updateInvoiceItems(this.rows.value);
+      this.invoiceService.updateInvoiceItems(this.rows.getRawValue());
       this.updateSubtotal();
     });
   }
@@ -83,7 +83,7 @@ export class DescriptionComponent implements OnInit {
     const total = rate * quantity;
     row.get('total')?.setValue(total, { emitEvent: false });
 
-    this.invoiceService.updateInvoiceItems(this.rows.value);
+    this.invoiceService.updateInvoiceItems(this.rows.getRawValue());
     this.updateSubtotal();
   }
 
@@ -93,7 +93,7 @@ export class DescriptionComponent implements OnInit {
 
   removeRow(index: number): void {
     this.rows.removeAt(index);
-    this.invoiceService.updateInvoiceItems(this.rows.value);
+    this.invoiceService.updateInvoiceItems(this.rows.getRawValue());
     this.updateSubtotal();
   }
 
