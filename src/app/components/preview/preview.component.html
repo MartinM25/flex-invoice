@@ -1,45 +1,70 @@
 <div class="invoice-preview">
-  <h1>Invoice Preview</h1>
+  <!-- Header Row: Invoice Title & Number -->
+  <div class="invoice-title-row">
+    <h1>INVOICE</h1>
+    <span class="invoice-number">#{{ invoiceData.business?.invoiceNumber }}</span>
+  </div>
 
-  <!-- Display the invoice content dynamically -->
-  <div id="invoice-preview" class="invoice">
-    <div class="invoice-header">
-      <h2>{{ invoiceData.business?.companyName }}</h2>
-      <p>{{ invoiceData.business?.companyAddress }}</p>
-      <p>{{ invoiceData.business?.invoiceNumber }} </p>
-      <p>{{ invoiceData.business?.invoiceDate | date:'dd MMMM yyyy'}} </p>
+  <!-- Company Info -->
+  <div class="company-info">
+    <h2 class="company-name">{{ invoiceData.business?.companyName }}</h2>
+    <p>{{ invoiceData.business?.companyStreet }}</p>
+    <p>{{ invoiceData.business?.companyCity }}</p>
+    <p>{{ invoiceData.business?.companyCountry }}</p>
+    <p>{{ invoiceData.business?.companyEmail }}</p>
+    <p>{{ invoiceData.business?.companyPhone }}</p>
+  </div>
+
+  <!-- Invoice Date -->
+  <div class="invoice-date">
+    <p>Date: {{ invoiceData.business?.invoiceDate | date: 'dd MMMM yyyy' }}</p>
+  </div>
+
+  <!-- Client Info -->
+  <div class="invoice-client">
+    <h3>Bill To:</h3>
+    <p>{{ invoiceData.client?.name }}</p>
+    <p>{{ invoiceData.client?.phone }}</p>
+    <p>{{ invoiceData.client?.streetAddress }}</p>
+  </div>
+
+  <!-- Invoice Items Table -->
+  <div class="invoice-items">
+    <table>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Rate</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of invoiceData.items">
+          <td>{{ item.description }}</td>
+          <td>{{ item.rate }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer Row: Banking + Total -->
+  <!-- Footer Row: Banking + Total -->
+  <div class="invoice-footer">
+    <div class="banking-details">
+      <h4>Banking Details</h4>
+      <p>{{ invoiceData.banking?.bankName }}</p>
+      <p>{{ invoiceData.banking?.accountNumber }}</p>
     </div>
-
-    <div class="invoice-client">
-      <h3>Bill To:</h3>
-      <p>{{ invoiceData.client?.name }}</p>
-      <p>{{ invoiceData.client?.phone }}</p>
-      <p>{{ invoiceData.client?.streetAddress }}</p>
-    </div>
-
-    <div class="invoice-items">
-      <table>
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>Rate</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of invoiceData.items">
-            <td>{{ item.description }}</td>
-            <td>{{ item.rate }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>{{ item.total }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="invoice-footer">
+    <div class="total-amount">
       <p>Total: {{ invoiceData.total }}</p>
     </div>
+  </div>
+
+  <!-- Thank You Note -->
+  <div class="thank-you">
+    <p>Thank you for working with us.</p>
   </div>
 </div>
