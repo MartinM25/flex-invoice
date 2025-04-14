@@ -6,6 +6,8 @@
     <div class="invoice-header">
       <h2>{{ invoiceData.business?.companyName }}</h2>
       <p>{{ invoiceData.business?.companyAddress }}</p>
+      <p>{{ invoiceData.business?.invoiceNumber }} </p>
+      <p>{{ invoiceData.business?.invoiceDate | date:'dd MMMM yyyy'}} </p>
     </div>
 
     <div class="invoice-client">
@@ -39,10 +41,5 @@
     <div class="invoice-footer">
       <p>Total: {{ invoiceData.total }}</p>
     </div>
-  </div>
-
-  <div class="preview-actions">
-    <button (click)="generatePreview()">Generate Preview</button>
-    <button (click)="downloadPdf()">Download PDF</button>
   </div>
 </div>

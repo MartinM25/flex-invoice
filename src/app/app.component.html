@@ -38,9 +38,9 @@
       <app-preview></app-preview>
     </div>
 
-    <!-- <div class="preview-actions">
-      <app-custom-button [backgroundColor]="'#FF2C2C'" [text]="'Back'" (action)="goBack()"></app-custom-button>
-      <app-custom-button [backgroundColor]="'green'" [text]="'Download PDF'" ></app-custom-button>
-    </div> -->
+    <div class="preview-actions">
+      <button (click)="generatePreview()">Generate Preview</button>
+      <button (click)="downloadPdf()">Download PDF</button>
+    </div>
   </div>
 </div>

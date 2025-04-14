@@ -58,19 +58,17 @@ export class AppComponent {
     this.generatePreview();
   }
 
-  downloadPdf() {
-    this.pdfService.downloadInvoicePDF();
-  }
-
   goBack() {
     this.showPreview = false;
   }
 
+  // Method to generate the invoice preview PDF
   generatePreview(): void {
-    // get all details from the Invoice  Service
-    const invoiceData = this.invoiceService.getAllDetails();
-
-    // Call the service to genarate the preview
     this.pdfService.generateInvoicePreview();
+  }
+
+  // Method to download the invoice as a PDF
+  downloadPdf(): void {
+    this.pdfService.downloadInvoicePDF();
   }
 }
