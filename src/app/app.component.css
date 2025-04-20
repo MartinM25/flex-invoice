@@ -31,16 +31,10 @@
 
 .table {
   width: 100%;
-  overflow-x: auto; /* Enables horizontal scrolling */
-  white-space: nowrap; /* Prevents elements from wrapping */
+  overflow-x: auto;
+  white-space: nowrap;
   max-width: 100%;
 }
-
-/* .summary {
-  width: 30%;
-  height: 200px;
-  border: 1px solid blue;S
-} */
 
 .banking {
   width: 100%;
@@ -57,7 +51,7 @@
 .preview-actions button {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  background-color: #007bff;
+  /* background-color: #00bf63; */
   color: white;
   border: none;
   border-radius: 6px;
@@ -66,7 +60,15 @@
 }
 
 .preview-actions button:hover {
-  background-color: #0056b3;
+  background-color: #00bf63;
+}
+
+.back {
+  background-color: #FF2C2C;
+}
+
+.download {
+  background-color: #00BF63;
 }
 
 /* Medium screens (tablets, 768px and up) */

@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
-import { InvoiceDataService } from '../../services/invoice-data.service';
-import { Subscription, distinctUntilChanged } from 'rxjs';
 
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { Subscription, distinctUntilChanged } from 'rxjs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { InvoiceDataService } from '../../services/invoice-data.service';
+import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-description',
   standalone: true,
   imports: [
-    // MatTableModule,
     CommonModule,
-    // MatInputModule,
+    MatIconModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './description.component.html',
   styleUrl: './description.component.css'
@@ -64,7 +64,7 @@ export class DescriptionComponent implements OnInit {
     return this.fb.group({
       description: [data.description || '', Validators.required],
       rate: [data.rate || 0, [Validators.required, Validators.min(0)]],
-      quantity: [data.quantity || 0, [Validators.required, Validators.min(0)]],
+      quantity: [data.quantity || 1, [Validators.required, Validators.min(1)]],
       total: [{ value: data.total || 0, disabled: true }],
     });
   }
@@ -102,7 +102,7 @@ export class DescriptionComponent implements OnInit {
       return sum + (row.get('total')?.value || 0);
     }, 0);
 
-    this.invoiceService.updateSubtotal(this.subtotal); // Share subtotal with service
+    this.invoiceService.updateSubtotal(this.subtotal);
   }
   
 }

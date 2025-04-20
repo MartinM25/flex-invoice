@@ -65,19 +65,33 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
-button[type='button'] {
-  background-color: #c0392b;
-  color: #fff;
+button {
   border: none;
   cursor: pointer;
-  padding: 10px 12px;
   font-size: 0.9rem;
-  margin-left: 10px;
-  height: 40px;
-  border-radius: 4px;
   transition: background-color 0.2s;
 }
 
+button[type='button'] {
+  background-color: transparent;
+  color: #c0392b;;
+  margin-left: 2px;
+}
+
 button[type='button']:hover {
-  background-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 4px 10px;
+}
+
+.custom-button:hover {
+  background-color:darkgrey;
 }

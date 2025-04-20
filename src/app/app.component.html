@@ -1,4 +1,9 @@
 <div class="container">
+  
+  <div *ngIf="!showPreview">
+    <app-main-header></app-main-header>
+  </div>
+
   <div *ngIf="!showPreview">
     <div class="card">
       <div class="second-row">
@@ -27,7 +32,7 @@
       <div class="top-row">
         <div class="action-buttons">
           <app-custom-button [backgroundColor]="'#FF2C2C'" [text]="'Clear'" (action)="onClear()"></app-custom-button>
-          <app-custom-button [backgroundColor]="'primary'" [text]="'Done'" (action)="onDone()"></app-custom-button>
+          <app-custom-button [backgroundColor]="'#00BF63'" [text]="'Done'" (action)="onDone()"></app-custom-button>
         </div>
       </div>
     </div>
@@ -39,8 +44,10 @@
     </div>
 
     <div class="preview-actions">
-      <button (click)="generatePreview()">Generate Preview</button>
-      <button (click)="downloadPdf()">Download PDF</button>
+      <button class="back" (click)="goBack()">Back</button>
+      <button class="download" (click)="downloadPdf()">
+        Download PDF
+      </button>
     </div>
   </div>
 </div>
